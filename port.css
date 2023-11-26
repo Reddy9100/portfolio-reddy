@@ -518,9 +518,6 @@ html,body{
 .label{
     color: #8416f9;
     font-weight: bold;
-    border-color: #8416f9;
-    border-width: 2px;
-    border-radius: 10px;
 }
 html,body{
     width: 100%;
@@ -678,37 +675,37 @@ html,body{
         color:#ef2c2c;
     }
     .home-inner2{
-        font-size: 40px;
+        font-size: 25px;
     }
     .Home-name{
-        font-size: 34px;
+        font-size: 24px;
     }
     .span-home{
-        font-size: 40px;
+        font-size: 30px;
         animation: change-image-home-head 4s infinite;
     }
     @keyframes  change-image-home-head {
         0%{
-            filter: drop-shadow(3px 3px 3px violet);
+            
             color: violet;
             transform: rotateZ(20deg);
         }
         25%{
-            filter: drop-shadow(5px 5px 5px indigo);
+           
             color: indigo;
         }
         50%{
-            filter: drop-shadow(7px 7px 7px green);
+           
             color: blue;
             margin-left:50px ;
         }
         75%{
-            filter: drop-shadow(9px 9px 9px yellow);
+            
             margin-bottom: 50px;
             color: green;
         }
         100%{
-            filter: drop-shadow(11px 11px 11px orange);
+            
             color: yellow;
         }
     }
@@ -761,7 +758,7 @@ html,body{
         align-items: center;
     }
     .About-desc{
-        width: 350px;
+        width: 320px;
         padding: 15px;
         height: 450px;
         overflow-x: scroll;
@@ -778,8 +775,8 @@ html,body{
         display: none;
     }
     .Skills-container{
-        margin: 40px;
-        height: 100vh;
+        margin: 20px;
+        height: 110vh;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -800,18 +797,18 @@ html,body{
         font-weight: 800;
     }
     .icon-container-skill{
-        height: 150px;
-        width: 150px;
+        height: 170px;
+        width: 130px;
         margin: 0px;
         margin-top: 10px;
     }
     #Projects{
         height: 350vh;
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
+        flex-wrap: wrap;
         justify-content: center;
         align-items: center;
-        gap:20px 0;
     }
     .Contact{
         display: flex;
@@ -824,8 +821,8 @@ html,body{
     }
     .Projects-inner1{
         background-color:black;
-        height: 55vh;
-        width:330px;
+        height: 57vh;
+        width: 350px;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -844,10 +841,11 @@ html,body{
         border-style: solid;
         border-color: black;
         border-radius: 20px;
-        filter: drop-shadow(3px 3px 3px  #8416f9);
+        filter: drop-shadow(none);
         display: flex;
         flex-direction: column;
         justify-content: center;
+        color:white;
         align-items: center;
         padding: 20px;
         font-size: medium;
@@ -914,15 +912,22 @@ html,body{
         flex-direction: column;
         background-color: #333;
         position: absolute;
-        top: 60px;
+        top: 0px;
         text-align: center;
         width: 100%;
-    }
+        transition: opacity 4s ease, transform 5s ease;
+        transform: translateY(-100%);
+}
 
     .menu.active {
         display: flex;
-        background-color: white;
-        font-size: 30px;
+        justify-content: space-evenly;
+        background-color: black;
+        border-bottom-left-radius: 30px;
+        border-bottom-right-radius: 30px;
+        font-size: 20px;
+        padding: 20px;
+       transform: translateY(60px);
     }
     .menu a{
         font-size: 25px;
@@ -939,5 +944,8 @@ html,body{
         color:white;
         font-weight: bold;
         font-size: 18px;
+    }
+    .label2{
+        font-weight: normal;
     }
 }
