@@ -813,7 +813,7 @@ html,body{
         margin-top:60px;
         display: flex;
         flex-direction: row;
-        justify-content: center;
+        justify-content:center;
         align-items: center;
         
     }
@@ -837,7 +837,7 @@ html,body{
         background-size: cover;
     }
     .form-container{
-        width:330px;
+        width:300px;
         height:500px;
         border-style: solid;
         border-color: black;
@@ -848,7 +848,6 @@ html,body{
         justify-content: center;
         color:white;
         align-items: center;
-        padding: 20px;
         font-size: medium;
     
     }
