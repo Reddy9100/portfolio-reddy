@@ -250,11 +250,11 @@ let messageele = document.getElementById("message-send");
         <div id="form">
             <h2 class="text-center mt-3">Contact-Form</h2>
             <label for="name" class="mt-2 label">Name</label>
-            <input type="text" class="form-control label2" id="name" name="name" placeholder="Your Name"/>
+            <input type="text" class="form-control label2" id="name" name="name" placeholder="Your Name" required/>
             <label for="mail" class="mt-2 label">Mail</label>
-            <input type="text" id="mail" class="form-control label2" name="mail" placeholder="Your Mail"/>
+            <input type="text" id="mail" class="form-control label2" name="mail" placeholder="Your Mail" required/>
             <label for="text" class="mt-2 label">Message</label>
-            <textarea cols="35" rows="6" id="text" class="form-control label2" name="text" placeholder="Your Message"></textarea>
+            <textarea cols="35" rows="6" id="text" class="form-control label2" name="text" placeholder="Your Message" required></textarea>
             <p id="message-send"></p>
             <div class="dbuutoncon">
             <button class="buttonsend text-center" onclick="sendEmail()">Send <i class="bi bi-send"></i></button>
