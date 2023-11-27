@@ -810,10 +810,12 @@ html,body{
         align-items: center;
     }
     .Contact{
+        margin-top:60px;
         display: flex;
         flex-direction: row;
         justify-content: center;
         align-items: center;
+        
     }
     .contact-image{
         display: none;
