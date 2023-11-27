@@ -803,7 +803,6 @@ html,body{
         margin-top: 10px;
     }
     #Projects{
-        height: 350vh;
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
