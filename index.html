@@ -21,19 +21,21 @@
         const serviceId = "service_qb2xrvn";
         const templateId = "template_9dfytbh";
 let messageele = document.getElementById("message-send");
-        emailjs.send(serviceId,templateId,params).then((res)=>{
-                messageele.textContent = "Message Sent";
-                messageele.style.color = "green"
-                messageele.style.fontSize="30px";
-
+                let namele = document.getElementById("name");
+                let mailele = document.getElementById("mail");
+                let taxtele = document.getElementById("text");
+            if(namele.value === "" || mailele.value === "" || taxtele.value === ""){
+                alert("Enter Data")
+            }
+            else{
+                emailjs.send(serviceId,templateId,params).then((res)=>{
+                alert("Message sent")
+                .catch((error)=> console.log(error))
+            })}
                 document.getElementById("name").value = "";
                 document.getElementById("mail").value = "";
                 document.getElementById("text").value = "";
-            setTimeout(function(){
-                messageele.textContent = ""
-            },2000)
-        })
-        .catch((error)=> console.log(error))
+        
     }
 
     function changeThemesun(){
@@ -254,7 +256,7 @@ let messageele = document.getElementById("message-send");
             <label for="mail" class="mt-2 label">Mail</label>
             <input type="text" id="mail" class="form-control label2" name="mail" placeholder="Your Mail" required/>
             <label for="text" class="mt-2 label">Message</label>
-            <textarea cols="35" rows="6" id="text" class="form-control label2" name="text" placeholder="Your Message" required></textarea>
+            <textarea cols="35" rows="6" id="text" class="form-control label2" name="text" placeholder="Your Message"></textarea>
             <p id="message-send"></p>
             <div class="dbuutoncon">
             <button class="buttonsend text-center" onclick="sendEmail()">Send <i class="bi bi-send"></i></button>
