@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -43,10 +44,25 @@ let messageele = document.getElementById("message-send");
                 emailjs.send(serviceId,templateId,params).then((res)=>{
                 setTimeout(function(){
                     mailsend.play()
+                    document.getElementById("rocket-text").textContent = "3...2..1 Launched"
                 },1000)
+
                 setTimeout(function(){
+                    let rocketImage = document.getElementById("launchBtn");
+                    let currentTop = parseInt(window.getComputedStyle(rocketImage).top) || 0;
+                    let newPosition = currentTop - 750; // Adjust the distance as needed
+                    rocketImage.style.top = newPosition + "px";
+                },3000)
+
+                setTimeout(function(){
+
                     alert("Message Sent Successfully...!!")
-                },4000)
+                    document.getElementById("rocket-text").textContent = "Enter Data to Launch Rocket"
+                    let rocketImage = document.getElementById("launchBtn");
+                   rocketImage.style.top="0";
+                },5000)
+
+                
                 .catch((error)=> console.log(error))
             })}
                 document.getElementById("name").value = "";
@@ -292,6 +308,7 @@ whoosh.src = "whoosh.mp3"
     </div>
     <div class="form-container p-4 mb-5" data-aos="zoom-in" data-aos-duration="1500">
         <div id="form">
+            <p style="color: red;" id="rocket-text">Enter Data To Launch The Rocket</p>
             <label for="name" class="mt-2 label">Name</label>
             <input type="text" class="form-control label2" id="name" name="name" placeholder="Your Name" required/>
             <label for="mail" class="mt-2 label">Mail</label>
@@ -300,9 +317,9 @@ whoosh.src = "whoosh.mp3"
             <textarea cols="35" rows="6" id="text" class="form-control label2" name="text" placeholder="Your Message"></textarea>
             <p id="message-send"></p>
             <div class="dbuutoncon">
-            <button class="buttonsend text-center" onclick="sendEmail()">Send <i class="bi bi-send"></i></button>
-
+            <button class="buttonsend text-center" onclick="sendEmail()">Send <img src="rocket2.webp" class="images-icon-rocket" id="launchBtn" /></button>
             </div>
+            
         </div>
         </div>
     </div>
