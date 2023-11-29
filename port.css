@@ -190,7 +190,7 @@ html,body{
     width: 400px;
     height: 400px;
     background-size: cover;
-    animation: change-image-home 20s infinite;
+    animation:none;
     border:5px gold solid;
     padding: 10px;
 }
