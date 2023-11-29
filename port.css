@@ -1,11 +1,58 @@
 
-
 @import url('https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@400;500;700&display=swap');
 *{
     box-sizing: border-box;
     margin: 0px;
     font-family: 'Bai Jamjuree', sans-serif;
 
+}
+html,body{
+    width:100%;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+.arrow{
+    border: 3px solid cyan;
+    outline: none;
+    border-top-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+    background-color:transparent;
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    animation: movetop 5s infinite;
+    filter:drop-shadow(5px 5px 5px rgb(255,0,183));
+}
+@keyframes movetop{
+    0%{
+        color: violet;
+        transform: translateY(40px);
+        border-top-right-radius: 30px;
+        border-bottom-left-radius: 30px;
+    }
+    25%{
+        color: indigo;
+        transform: translateY(30px);
+    }
+    50%{
+        color: blue;
+        transform: translateY(20px);
+        border-top-right-radius: 60px;
+        border-bottom-left-radius: 60px;
+    }
+    75%{
+        color: greenyellow;
+        transform: translateY(10px);
+        border-top-right-radius: 60px;
+        border-bottom-left-radius: 60px;
+    }
+    100%{
+        color: red;
+        transform: translateY(0px);
+        border-top-left-radius: 30px;
+        border-bottom-right-radius: 30px;
+    }
 }
 .darktheme{
     background-color: black;
@@ -49,7 +96,7 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    width: 910px;
+    width: 1100px;
     margin-top: 40px;
 }
 .footer-span{
@@ -90,9 +137,6 @@
     background-size: cover;
     margin-left: 10px;
     border-radius: 90%;
-}
-html,body{
-    cursor:url("Assets/1.png"),auto;
 }
 .themebutton{
     border-radius: 90px;
@@ -521,10 +565,6 @@ html,body{
     color: #8416f9;
     font-weight: bold;
 }
-html,body{
-    width: 100%;
-    overflow-x: hidden;
-}
 .navbar-icon{
     display: none;
 }
@@ -844,6 +884,9 @@ html,body{
         width: 299px;
         background-size: cover;
     }
+    .arrow{
+        margin: 0;
+    }
     .form-container{
         width:300px;
         height:500px;
@@ -881,10 +924,6 @@ html,body{
     }
     .footer-desc{
         font-size: 15px;
-    }
-    html,body{
-        width: 100%;
-        overflow-x: hidden;
     }
     .label2{
         height: 40px;
