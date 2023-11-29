@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -96,6 +97,17 @@ let messageele = document.getElementById("message-send");
     });
 });
 
+function arrowtotop(){
+   let arrow =  document.getElementById("arrowtop")
+   arrow.addEventListener("animationend",function(){
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    })
+   })
+
+}
+
     </script>
    
 
@@ -133,7 +145,7 @@ let messageele = document.getElementById("message-send");
         <a href="https://github.com/Reddy9100" target="_self"><i class="fa-brands fa-github ml-3 icon-link"></i></a>
         </div>
         <div class="resumesection mt-4">
-            <a href="https://drive.google.com/file/d/1RvQRIk5SRpvvVuh_fX9Zh44FjUDtvutp/view?usp=sharing" download="C:\Users\darli\Desktop\portfo\new port\Reddysai_resume_Updated.pdf" target="_self" class="btn btn-info pulse">Download Resume</a>
+            <a href="Reddysai_resume_Updated.pdf" download="" target="_self" class="btn btn-info pulse">Download Resume</a>
         </div>
         
     </div>
@@ -277,6 +289,8 @@ let messageele = document.getElementById("message-send");
             <p style="font-size: 20px; font-weight: bold;" class="footer-desc">Contact :<span class="footer-span"> 9100894136</span></p>
             <p style="font-size: 20px; font-weight: bold;">Email : <span class="footer-span">kanthurireddysai@gmail.com</span></p>
             <p style="font-size: 20px; font-weight: bold;">Address : <span class="footer-span">Silkboard, Bangalore</span></p>
+            <a href="#Home" onclick="arrowtotop()"><i class="fa-sharp fa-solid fa-arrow-up arrow" style="color: #f0380a;" id="arrowtop"></i></a>
+        </div>
         </div>
         <div class="footer-rights">
             <i class="fa-regular fa-copyright"></i>
