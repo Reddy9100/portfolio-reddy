@@ -12,46 +12,42 @@ html,body{
     scroll-behavior: smooth;
 }
 .arrow{
-    border: 3px solid cyan;
+    border: 5px solid aqua;
     outline: none;
-    border-top-right-radius: 30px;
-    border-bottom-left-radius: 30px;
+    border-radius:90px;
     background-color:transparent;
     margin-left: 20px;
     display: flex;
     align-items: center;
     padding: 15px;
     animation: movetop 5s infinite;
-    filter:drop-shadow(5px 5px 5px rgb(255,0,183));
+    filter:drop-shadow(5px 5px 5px greenyellow);
 }
 @keyframes movetop{
     0%{
         color: violet;
         transform: translateY(40px);
-        border-top-right-radius: 30px;
-        border-bottom-left-radius: 30px;
+        clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
     }
     25%{
         color: indigo;
         transform: translateY(30px);
+        clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
     }
     50%{
         color: blue;
         transform: translateY(20px);
-        border-top-right-radius: 60px;
-        border-bottom-left-radius: 60px;
+        clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
     }
     75%{
         color: greenyellow;
         transform: translateY(10px);
-        border-top-right-radius: 60px;
-        border-bottom-left-radius: 60px;
+        clip-path: polygon(50% 0%, 90% 20%, 100% 60%, 75% 100%, 25% 100%, 0% 60%, 10% 20%);
     }
     100%{
         color: red;
         transform: translateY(0px);
-        border-top-left-radius: 30px;
-        border-bottom-right-radius: 30px;
+        clip-path: circle(50% at 50% 50%);
     }
 }
 .darktheme{
@@ -190,8 +186,9 @@ html,body{
     width: 400px;
     height: 400px;
     background-size: cover;
-    animation:change-image-home 10s infinite;
+    animation: change-image-home 20s 3;
     border:5px gold solid;
+    border-radius: 90px;
     padding: 10px;
 }
 .span-home{
@@ -200,24 +197,28 @@ html,body{
 }
 @keyframes change-image-home{
     0%{
-        clip-path: polygon(20% 0%, 80% 0%, 100% 20%, 100% 80%, 80% 100%, 20% 100%, 0% 80%, 0% 20%);
+        filter: drop-shadow(3px 3px 3px violet);
+        color: violet;
+        clip-path: polygon(30% 0%, 70% 0%, 0 50%, 0 53%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
     }
     25%{
         filter: drop-shadow(3px 3px 3px indigo);
-        
+        color: indigo;
     }
     50%{
         filter: drop-shadow(3px 3px 3px green);
-        
+        color: blue;
+        clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
     }
     75%{
         filter: drop-shadow(3px 3px 3px yellow);
-       
+        color: green;
     }
     100%{
         filter: drop-shadow(3px 3px 3px black);
-    
+        color: yellow;
         clip-path: circle(50% at 50% 50%);
+        
     }
 }
 @keyframes  change-image-home-head {
