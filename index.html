@@ -61,13 +61,11 @@ let messageele = document.getElementById("message-send");
     imageTotal.classList.add("d-flex", "flex-row", "justify-content-center", "align-items-center");
     document.body.appendChild(imageTotal);
 
-    let imagerocket = document.createElement("video");
-    imagerocket.src = "journey.mp4";
+    let imagerocket = document.createElement("img");
+    imagerocket.src = "rocketlauch.gif";
     imagerocket.style.width = "100%";
     imagerocket.style.height = "100%";
     imagerocket.style.objectFit = "cover";
-    imagerocket.playbackRate = 3;
-    imagerocket.autoplay = true;
     imageTotal.appendChild(imagerocket);
 
     imagerocket.addEventListener('ended', function () {
