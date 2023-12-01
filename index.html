@@ -11,96 +11,107 @@
    <script src="https://kit.fontawesome.com/e7cca4e1bc.js" crossorigin="anonymous"></script>
    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script type="text/javascript">
-        function sendEmail(){
-        (function () {
-            emailjs.init('sqbPNgySeq8cYc4BA');
-        })();
-        var params = {
-            name : document.getElementById("name").value,
-            mail : document.getElementById("mail").value,
-            text : document.getElementById("text").value
-        }
-        const serviceId = "service_qb2xrvn";
-        const templateId = "template_9dfytbh";
-let messageele = document.getElementById("message-send");
-                let namele = document.getElementById("name");
-                let mailele = document.getElementById("mail");
-                let taxtele = document.getElementById("text");
-            if(namele.value === "" || mailele.value === "" || taxtele.value === ""){
-                setTimeout(function(){
-                const error = new Audio()
-                error.src = "error.mp3"
-                error.play()
-                },1000)
+       let rocketTimeout;  // Declare a variable to store the timeout ID
+let continueRocketAnimation = true;  // Flag to control the rocket animation
+let imageTotal;  // Declare a variable for the imageTotal container
 
-                setTimeout(function(){
-                    alert("Enter Data")
-                },2000)
-            }
-            else{
-                const mailsend = new Audio()
-                mailsend.src = "mailsend.mp3"
-                emailjs.send(serviceId,templateId,params).then((res)=>{
-                setTimeout(function(){
-                    mailsend.play()
-                    document.getElementById("rocket-text").textContent = "🚀 Ready to Lauch 🚀!!"
-                },1000)
+function sendRocket() {
 
-                setTimeout(function(){
-                    let totalcon = document.getElementById("total-container");
-        totalcon.classList.add("d-none");
-
-    let rocketImage = document.getElementById("launchBtn");
-    let currentTop = parseInt(window.getComputedStyle(rocketImage).top) || 0;
-    let newPosition = currentTop - 750;
-    rocketImage.style.top = newPosition + "px";
-
-    let imageTotal = document.createElement("div");
+    // Create a container for the rocket and message
+    imageTotal = document.createElement("div");
     imageTotal.id = "image-rocket";
     imageTotal.style.height = "100vh";
-    imageTotal.classList.add("d-flex", "flex-row", "justify-content-center", "align-items-center");
+    imageTotal.classList.add("d-flex", "flex-column", "justify-content-end", "align-items-center");
     document.body.appendChild(imageTotal);
 
-    let imagerocket = document.createElement("img");
-    imagerocket.src = "rocketlaunch.gif";
-    imagerocket.style.objectFit = "cover";
-    imageTotal.appendChild(imagerocket);
+    // Create a thank-you message
+    let headingEl = document.createElement("p");
+    headingEl.textContent = "💗💗 Thanks For The Message 💗💗 ";
+    headingEl.style.color = "red";
+    headingEl.classList.add("pulse");
+    headingEl.style.marginTop="20px";
+    imageTotal.appendChild(headingEl);
 
-    imagerocket.addEventListener('ended', function () {
-      
-        document.getElementById("rocket-text").textContent = "Enter Data to Launch Rocket";
-        rocketImage.style.top = "0";
+    // Create and append the rocket image
+    let imageRocket = document.createElement("img");
+    imageRocket.src = "rocketlaunch.gif";
+    imageRocket.style.objectFit = "cover";
+    imageRocket.autoplay = true;
+    imageTotal.appendChild(imageRocket);
 
+    imageTotal.classList.add("d-block");
+}
 
-        imageTotal.classList.add("d-none");
+function sendEmail() {
+    // Initialize EmailJS with your API key
+    (function () {
+        emailjs.init('HosHaVrNYwTqgDnKz');
+    })();
 
-        totalcon.classList.remove("d-none");
-    });
-},3000)
+    // Get input values
+    let nameInput = document.getElementById("name");
+    let mailInput = document.getElementById("mail");
+    let textInput = document.getElementById("text");
 
+    let params = {
+        name: nameInput.value,
+        mail: mailInput.value,
+        text: textInput.value
+    };
 
-                setTimeout(function(){
+    // Check if any input field is empty
+    if (nameInput.value === "" || mailInput.value === "" || textInput.value === "") {
+        // Play an error sound and show an alert
+        setTimeout(function () {
+            const errorSound = new Audio("error.mp3");
+            errorSound.play();
+             
+        }, 1000);
 
-                    alert("Message Sent Successfully...!!")
-                    document.getElementById("rocket-text").textContent = "Enter Data to Launch Rocket"
-                    let rocketImage = document.getElementById("launchBtn");
-                    rocketImage.style.top="0";
-                    let totalcon = document.getElementById("total-container")
-                    totalcon.classList.add("d-block")
-                    let imageTotal = document.getElementById("image-rocket");
-                    document.body.removeChild(imageTotal)
-
-                },7000)
-
-                
-                .catch((error)=> console.log(error))
-            })}
-                document.getElementById("name").value = "";
-                document.getElementById("mail").value = "";
-                document.getElementById("text").value = "";
+        setTimeout(()=>{
+            alert("Enter Data");
+        },2000)
+    } else {
         
+
+        const serviceId = "service_xtewfkx";
+        const templateId = "template_t68buzx";
+
+        emailjs.send(serviceId, templateId, params)
+        .then((res) => {
+                console.log("Email sent successfully:", res);
+                setTimeout(function () {
+                    let totalContainer = document.getElementById("total-container");
+                    totalContainer.classList.add("d-none");
+                    document.getElementById("rocket-text").textContent = "🚀 Enter Data To Launch Rocket 🚀!!";
+
+                    // Stop the rocket animation
+                    const successSound = new Audio();
+                    successSound.src = "mailsend.mp3"
+                    successSound.play();
+                    sendRocket();
+                    
+                }, 1000);
+
+                setTimeout(()=>{
+                alert("Message Send Successfully !!!")
+                window.location.reload()
+                },3000)  
+            })
+            .catch((error) => {
+                console.error("EmailJS Error:", error);
+            });
     }
 
+    // Clear input fields
+    nameInput.value = "";
+    mailInput.value = "";
+textInput.value = "";
+
+}
+              
+
+       
     function changeThemesun(){
         let lightswitch = document.getElementById("lighttheme")
         if(lightswitch.classList.toggle("lightmode")){
@@ -344,7 +355,7 @@ icon_tap.src = "icon_tap.mp3"
     </div>
     <div class="form-container p-4 mb-5" data-aos="zoom-in" data-aos-duration="1500">
         <form id="form">
-            <p style="color: red;" id="rocket-text">Enter Data To Launch The Rocket</p>
+            <p style="color: red; font-size: 16px;" id="rocket-text">🚀 Enter Data To Launch The Rocket 🚀</p>
             <label for="name" class="mt-2 label">Name</label>
             <input type="text" class="form-control label2" id="name" name="name" placeholder="Your Name" required onkeydown="keydown.play()"/>
             <label for="mail" class="mt-2 label">Mail</label>
